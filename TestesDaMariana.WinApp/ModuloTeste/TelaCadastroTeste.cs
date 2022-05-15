@@ -30,6 +30,8 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             CarregarDisciplinas();
         }
 
+
+
         public Teste Teste 
         {
             get { return teste;  }
@@ -98,6 +100,7 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
+            btnGravar.Enabled = true;
             listBoxQuestoes.Items.Clear();
 
             int qtdQuestoes = (int)numQuestoes.Value;
@@ -110,6 +113,49 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             }
         }
 
+        private void comboBoxMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            numQuestoes.Enabled = true;
+            numQuestoes.Minimum = 1;
+            numQuestoes.Maximum =  ObtemQuantidadeMaxima();
+            if(numQuestoes.Value == 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Não existem questões cadastradas para a matéria selecionada!");
+                btnSortearQuestoes.Enabled = false;
 
+            }
+
+        }
+
+        private decimal ObtemQuantidadeMaxima()
+        {
+            Materia m = (Materia)comboBoxMateria.SelectedItem;
+            List<Questao> questoesMateriaSelecionada = repositorioQuestao.SelecionarTodos().Where(x => x.Materia.Equals(m)).ToList();
+            return questoesMateriaSelecionada.Count;
+        }
+
+        private void numQuestoes_ValueChanged(object sender, EventArgs e)
+        {
+            btnSortearQuestoes.Enabled = true;
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+
+
+
+
+        #region rodapé
+        private void TelaCadastroTeste_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+
+        private void TelaCadastroTeste_Load(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+        #endregion
     }
 }

@@ -3,8 +3,6 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TestesDaMariana.Dominio.Compartilhado;
-using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
 using TestesDaMariana.Infra.Compartilhado;
 
@@ -58,12 +56,13 @@ namespace TestesDaMariana.Infra.Repositorios
             if (resultadoValidacao.IsValid == false)
                 return resultadoValidacao;
 
-            var nomeEncontrado = ObterRegistros()
-               .Select(x => x.Nome.ToLower())
-               .Contains(registro.Nome.ToLower());
+            var materias = ObterRegistros();
+            foreach(var m in materias)
+            {
+                if(m.Nome.ToLower() == registro.Nome.ToLower() && m.Serie == registro.Serie && registro.Numero == 0)
+                    resultadoValidacao.Errors.Add(new ValidationFailure("", "Nome da matéria já está cadastrado com a série selecionada"));
 
-            if (nomeEncontrado && registro.Numero == 0)
-                resultadoValidacao.Errors.Add(new ValidationFailure("", "Nome já está cadastrado"));
+            }
 
             return resultadoValidacao;
         }

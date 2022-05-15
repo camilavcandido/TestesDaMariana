@@ -39,19 +39,16 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnSortearQuestoes = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxQuestoesSorteadas = new System.Windows.Forms.GroupBox();
             this.listBoxQuestoes = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuestoes)).BeginInit();
-            this.panel2.SuspendLayout();
             this.groupBoxQuestoesSorteadas.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 51);
+            this.label1.Location = new System.Drawing.Point(27, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 0;
@@ -60,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 93);
+            this.label2.Location = new System.Drawing.Point(27, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 1;
@@ -69,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 136);
+            this.label3.Location = new System.Drawing.Point(27, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 15);
             this.label3.TabIndex = 2;
@@ -78,7 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 176);
+            this.label4.Location = new System.Drawing.Point(27, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 15);
             this.label4.TabIndex = 3;
@@ -86,7 +83,7 @@
             // 
             // txtTituloTeste
             // 
-            this.txtTituloTeste.Location = new System.Drawing.Point(93, 48);
+            this.txtTituloTeste.Location = new System.Drawing.Point(97, 31);
             this.txtTituloTeste.Name = "txtTituloTeste";
             this.txtTituloTeste.Size = new System.Drawing.Size(273, 23);
             this.txtTituloTeste.TabIndex = 4;
@@ -94,7 +91,7 @@
             // comboBoxDisciplina
             // 
             this.comboBoxDisciplina.FormattingEnabled = true;
-            this.comboBoxDisciplina.Location = new System.Drawing.Point(93, 87);
+            this.comboBoxDisciplina.Location = new System.Drawing.Point(97, 70);
             this.comboBoxDisciplina.Name = "comboBoxDisciplina";
             this.comboBoxDisciplina.Size = new System.Drawing.Size(273, 23);
             this.comboBoxDisciplina.TabIndex = 5;
@@ -103,22 +100,25 @@
             // comboBoxMateria
             // 
             this.comboBoxMateria.FormattingEnabled = true;
-            this.comboBoxMateria.Location = new System.Drawing.Point(93, 128);
+            this.comboBoxMateria.Location = new System.Drawing.Point(97, 111);
             this.comboBoxMateria.Name = "comboBoxMateria";
             this.comboBoxMateria.Size = new System.Drawing.Size(273, 23);
             this.comboBoxMateria.TabIndex = 6;
+            this.comboBoxMateria.SelectedIndexChanged += new System.EventHandler(this.comboBoxMateria_SelectedIndexChanged);
             // 
             // numQuestoes
             // 
-            this.numQuestoes.Location = new System.Drawing.Point(171, 174);
+            this.numQuestoes.Enabled = false;
+            this.numQuestoes.Location = new System.Drawing.Point(175, 157);
             this.numQuestoes.Name = "numQuestoes";
             this.numQuestoes.Size = new System.Drawing.Size(51, 23);
             this.numQuestoes.TabIndex = 7;
+            this.numQuestoes.ValueChanged += new System.EventHandler(this.numQuestoes_ValueChanged);
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(341, 429);
+            this.btnCancelar.Location = new System.Drawing.Point(345, 412);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 10;
@@ -128,7 +128,8 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(260, 429);
+            this.btnGravar.Enabled = false;
+            this.btnGravar.Location = new System.Drawing.Point(264, 412);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 30);
             this.btnGravar.TabIndex = 9;
@@ -138,7 +139,8 @@
             // 
             // btnSortearQuestoes
             // 
-            this.btnSortearQuestoes.Location = new System.Drawing.Point(138, 429);
+            this.btnSortearQuestoes.Enabled = false;
+            this.btnSortearQuestoes.Location = new System.Drawing.Point(142, 412);
             this.btnSortearQuestoes.Name = "btnSortearQuestoes";
             this.btnSortearQuestoes.Size = new System.Drawing.Size(116, 30);
             this.btnSortearQuestoes.TabIndex = 11;
@@ -146,29 +148,10 @@
             this.btnSortearQuestoes.UseVisualStyleBackColor = true;
             this.btnSortearQuestoes.Click += new System.EventHandler(this.btnSortearQuestoes_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(439, 35);
-            this.panel2.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(154, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 15);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Gerador de Testes Aleatórios";
-            // 
             // groupBoxQuestoesSorteadas
             // 
             this.groupBoxQuestoesSorteadas.Controls.Add(this.listBoxQuestoes);
-            this.groupBoxQuestoesSorteadas.Location = new System.Drawing.Point(21, 205);
+            this.groupBoxQuestoesSorteadas.Location = new System.Drawing.Point(25, 188);
             this.groupBoxQuestoesSorteadas.Name = "groupBoxQuestoesSorteadas";
             this.groupBoxQuestoesSorteadas.Size = new System.Drawing.Size(395, 218);
             this.groupBoxQuestoesSorteadas.TabIndex = 13;
@@ -189,9 +172,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 471);
+            this.ClientSize = new System.Drawing.Size(430, 459);
             this.Controls.Add(this.groupBoxQuestoesSorteadas);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSortearQuestoes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
@@ -203,10 +185,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroTeste";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gerador de Testes Aleatórios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaCadastroTeste_FormClosing);
+            this.Load += new System.EventHandler(this.TelaCadastroTeste_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numQuestoes)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBoxQuestoesSorteadas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,8 +213,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnSortearQuestoes;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBoxQuestoesSorteadas;
         private System.Windows.Forms.ListBox listBoxQuestoes;
     }

@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 31);
+            this.label1.Location = new System.Drawing.Point(16, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 15);
             this.label1.TabIndex = 0;
@@ -52,15 +52,15 @@
             // 
             this.comboBoxDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDisciplina.FormattingEnabled = true;
-            this.comboBoxDisciplina.Location = new System.Drawing.Point(90, 28);
+            this.comboBoxDisciplina.Location = new System.Drawing.Point(88, 24);
             this.comboBoxDisciplina.Name = "comboBoxDisciplina";
-            this.comboBoxDisciplina.Size = new System.Drawing.Size(183, 23);
+            this.comboBoxDisciplina.Size = new System.Drawing.Size(184, 23);
             this.comboBoxDisciplina.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 79);
+            this.label2.Location = new System.Drawing.Point(16, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 15);
             this.label2.TabIndex = 2;
@@ -69,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 128);
+            this.label3.Location = new System.Drawing.Point(16, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 3;
@@ -77,17 +77,17 @@
             // 
             // txtNomeMateria
             // 
-            this.txtNomeMateria.Location = new System.Drawing.Point(72, 76);
+            this.txtNomeMateria.Location = new System.Drawing.Point(72, 72);
             this.txtNomeMateria.Name = "txtNomeMateria";
-            this.txtNomeMateria.Size = new System.Drawing.Size(282, 23);
+            this.txtNomeMateria.Size = new System.Drawing.Size(280, 23);
             this.txtNomeMateria.TabIndex = 4;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(279, 153);
+            this.btnCancelar.Location = new System.Drawing.Point(272, 152);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(72, 32);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(198, 153);
+            this.btnGravar.Location = new System.Drawing.Point(192, 152);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 30);
+            this.btnGravar.Size = new System.Drawing.Size(72, 32);
             this.btnGravar.TabIndex = 6;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // radioButton1serie
             // 
             this.radioButton1serie.AutoSize = true;
-            this.radioButton1serie.Location = new System.Drawing.Point(72, 126);
+            this.radioButton1serie.Location = new System.Drawing.Point(65, 132);
             this.radioButton1serie.Name = "radioButton1serie";
             this.radioButton1serie.Size = new System.Drawing.Size(36, 19);
             this.radioButton1serie.TabIndex = 8;
@@ -117,7 +117,7 @@
             // radioButton2serie
             // 
             this.radioButton2serie.AutoSize = true;
-            this.radioButton2serie.Location = new System.Drawing.Point(114, 126);
+            this.radioButton2serie.Location = new System.Drawing.Point(112, 132);
             this.radioButton2serie.Name = "radioButton2serie";
             this.radioButton2serie.Size = new System.Drawing.Size(36, 19);
             this.radioButton2serie.TabIndex = 9;
@@ -139,7 +139,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxDisciplina);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroMateria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Matéria";

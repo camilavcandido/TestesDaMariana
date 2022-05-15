@@ -14,7 +14,6 @@ namespace TestesDaMariana.WinApp.ModuloMateria
         IRepositorioDisciplina repositorioDisciplina;
         private Materia materia;
 
-
         public TelaCadastroMateria(IRepositorioDisciplina repositorioDisciplina)
         {
             InitializeComponent();
@@ -34,7 +33,9 @@ namespace TestesDaMariana.WinApp.ModuloMateria
             {
                 materia = value;
                 txtNomeMateria.Text = materia.Nome;
-                
+                comboBoxDisciplina.SelectedItem = materia.Disciplina;
+
+
             }
         }
 
@@ -76,6 +77,7 @@ namespace TestesDaMariana.WinApp.ModuloMateria
             return n;
         }
 
+        #region rodapé
         private void TelaCadastroMateria_Load(object sender, EventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
@@ -86,5 +88,6 @@ namespace TestesDaMariana.WinApp.ModuloMateria
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
+        #endregion
     }
 }

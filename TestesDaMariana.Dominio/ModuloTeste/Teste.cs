@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestesDaMariana.Dominio.Compartilhado;
 using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
@@ -48,6 +45,7 @@ namespace TestesDaMariana.Dominio.ModuloTeste
             Disciplina = registro.Disciplina;
             Materia = registro.Materia;
             Questoes = registro.Questoes;
+            dataCriacao = DateTime.Now;
         }
 
         public object Clone()

@@ -98,6 +98,7 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
 
         private void btnExcluirAlternativa_Click(object sender, EventArgs e)
         {
+
             Alternativa alternativaSelecionada = (Alternativa)listAlternativas.SelectedItem;
               
 
@@ -114,6 +115,7 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
             if (resultado == DialogResult.OK)
             {
                 listAlternativas.Items.Remove(alternativaSelecionada);
+                questao.Alternativas.Remove(alternativaSelecionada);
             }
 
         }
@@ -135,9 +137,24 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
                 if(m.Disciplina == comboBoxDisciplinas.SelectedItem)
                 {
                     comboBoxMaterias.Items.Add(m);
+
                 }
             }
 
         }
+
+        #region rodapé
+        private void TelaCadastroQuestao_Load(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+
+        private void TelaCadastroQuestao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+        #endregion
     }
 }

@@ -177,7 +177,6 @@
             this.comboBoxLetraAlternativa.Name = "comboBoxLetraAlternativa";
             this.comboBoxLetraAlternativa.Size = new System.Drawing.Size(50, 23);
             this.comboBoxLetraAlternativa.TabIndex = 1;
-            this.comboBoxLetraAlternativa.SelectedIndex = 0;
             // 
             // label1
             // 
@@ -301,11 +300,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxMaterias);
             this.Controls.Add(this.txtMateria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCadastroQuestao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Questão";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaCadastroQuestao_FormClosing);
+            this.Load += new System.EventHandler(this.TelaCadastroQuestao_Load);
             this.groupBoxAlternativas.ResumeLayout(false);
             this.groupBoxAlternativas.PerformLayout();
             this.ResumeLayout(false);

@@ -44,6 +44,7 @@ namespace TestesDaMariana.WinApp.ModuloDisciplina
             }
         }
 
+        #region rodapé
         private void TelaCadastroDisciplina_Load(object sender, EventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
@@ -53,6 +54,7 @@ namespace TestesDaMariana.WinApp.ModuloDisciplina
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
+        #endregion
 
     }
 }
