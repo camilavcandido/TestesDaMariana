@@ -1,16 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TestesDaMariana.Infra.Compartilhado.Serializador
 {
     public class SerializadorJsonDotnet : ISerializador
     {
-        private const string arquivo = @"C:\temp\dadosTestess.json";
+        private const string arquivo = @"C:\temp\dados.json";
 
         public DataContext CarregarDadosDoArquivo()
         {
