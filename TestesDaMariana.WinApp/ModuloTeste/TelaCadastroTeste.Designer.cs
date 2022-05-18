@@ -41,6 +41,7 @@
             this.btnSortearQuestoes = new System.Windows.Forms.Button();
             this.groupBoxQuestoesSorteadas = new System.Windows.Forms.GroupBox();
             this.listBoxQuestoes = new System.Windows.Forms.ListBox();
+            this.checkBoxProvaRecuperacao = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuestoes)).BeginInit();
             this.groupBoxQuestoesSorteadas.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 119);
+            this.label3.Location = new System.Drawing.Point(27, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 15);
             this.label3.TabIndex = 2;
@@ -75,7 +76,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 159);
+            this.label4.Location = new System.Drawing.Point(27, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 15);
             this.label4.TabIndex = 3;
@@ -102,7 +103,7 @@
             // 
             this.comboBoxMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMateria.FormattingEnabled = true;
-            this.comboBoxMateria.Location = new System.Drawing.Point(97, 111);
+            this.comboBoxMateria.Location = new System.Drawing.Point(97, 143);
             this.comboBoxMateria.Name = "comboBoxMateria";
             this.comboBoxMateria.Size = new System.Drawing.Size(273, 23);
             this.comboBoxMateria.TabIndex = 6;
@@ -111,7 +112,7 @@
             // numQuestoes
             // 
             this.numQuestoes.Enabled = false;
-            this.numQuestoes.Location = new System.Drawing.Point(175, 157);
+            this.numQuestoes.Location = new System.Drawing.Point(175, 189);
             this.numQuestoes.Name = "numQuestoes";
             this.numQuestoes.Size = new System.Drawing.Size(51, 23);
             this.numQuestoes.TabIndex = 7;
@@ -120,7 +121,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 412);
+            this.btnCancelar.Location = new System.Drawing.Point(345, 444);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 10;
@@ -130,7 +131,7 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(264, 412);
+            this.btnGravar.Location = new System.Drawing.Point(264, 444);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 30);
             this.btnGravar.TabIndex = 9;
@@ -141,7 +142,7 @@
             // btnSortearQuestoes
             // 
             this.btnSortearQuestoes.Enabled = false;
-            this.btnSortearQuestoes.Location = new System.Drawing.Point(142, 412);
+            this.btnSortearQuestoes.Location = new System.Drawing.Point(142, 444);
             this.btnSortearQuestoes.Name = "btnSortearQuestoes";
             this.btnSortearQuestoes.Size = new System.Drawing.Size(116, 30);
             this.btnSortearQuestoes.TabIndex = 11;
@@ -152,7 +153,7 @@
             // groupBoxQuestoesSorteadas
             // 
             this.groupBoxQuestoesSorteadas.Controls.Add(this.listBoxQuestoes);
-            this.groupBoxQuestoesSorteadas.Location = new System.Drawing.Point(25, 188);
+            this.groupBoxQuestoesSorteadas.Location = new System.Drawing.Point(25, 220);
             this.groupBoxQuestoesSorteadas.Name = "groupBoxQuestoesSorteadas";
             this.groupBoxQuestoesSorteadas.Size = new System.Drawing.Size(395, 218);
             this.groupBoxQuestoesSorteadas.TabIndex = 13;
@@ -169,11 +170,23 @@
             this.listBoxQuestoes.Size = new System.Drawing.Size(389, 196);
             this.listBoxQuestoes.TabIndex = 0;
             // 
+            // checkBoxProvaRecuperacao
+            // 
+            this.checkBoxProvaRecuperacao.AutoSize = true;
+            this.checkBoxProvaRecuperacao.Location = new System.Drawing.Point(28, 108);
+            this.checkBoxProvaRecuperacao.Name = "checkBoxProvaRecuperacao";
+            this.checkBoxProvaRecuperacao.Size = new System.Drawing.Size(143, 19);
+            this.checkBoxProvaRecuperacao.TabIndex = 14;
+            this.checkBoxProvaRecuperacao.Text = "Prova de Recuperação";
+            this.checkBoxProvaRecuperacao.UseVisualStyleBackColor = true;
+            this.checkBoxProvaRecuperacao.CheckedChanged += new System.EventHandler(this.checkBoxProvaRecuperacao_CheckedChanged);
+            // 
             // TelaCadastroTeste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 459);
+            this.ClientSize = new System.Drawing.Size(430, 520);
+            this.Controls.Add(this.checkBoxProvaRecuperacao);
             this.Controls.Add(this.groupBoxQuestoesSorteadas);
             this.Controls.Add(this.btnSortearQuestoes);
             this.Controls.Add(this.btnCancelar);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.Button btnSortearQuestoes;
         private System.Windows.Forms.GroupBox groupBoxQuestoesSorteadas;
         private System.Windows.Forms.ListBox listBoxQuestoes;
+        private System.Windows.Forms.CheckBox checkBoxProvaRecuperacao;
     }
 }

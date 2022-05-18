@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestesDaMariana.Dominio.Compartilhado;
+using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
 
 namespace TestesDaMariana.Dominio.ModuloQuestao
@@ -12,5 +13,6 @@ namespace TestesDaMariana.Dominio.ModuloQuestao
     {
         void AdicionarAlternativas(Questao q, List<Alternativa> a);
          List<Questao> Sortear(Materia materia, int qtd);
+        List<Questao> SortearQuestoesRecuperacao(Disciplina disciplina, int qtd);
     }
 }

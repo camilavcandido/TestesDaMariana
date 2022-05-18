@@ -12,8 +12,8 @@ namespace TestesDaMariana.Dominio.ModuloTeste
             RuleFor(x => x.Disciplina)
              .NotNull().NotEmpty();
 
-            RuleFor(x => x.Materia)
-             .NotNull().NotEmpty();
+            RuleFor(x => x.Questoes)
+            .NotNull().NotEmpty();
 
         }
     }

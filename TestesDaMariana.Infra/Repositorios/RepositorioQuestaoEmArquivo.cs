@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
 using TestesDaMariana.Dominio.ModuloQuestao;
 using TestesDaMariana.Infra.Compartilhado;
@@ -95,6 +96,27 @@ namespace TestesDaMariana.Infra.Repositorios
                     break;
             }
 
+
+            return questoesSorteadas;
+        }
+
+
+        public List<Questao> SortearQuestoesRecuperacao(Disciplina disciplina, int qtd)
+        {
+            int limite = 0;
+            List<Questao> questoesSorteadas = new List<Questao>();
+            List<Questao> questoesDisciplinaSelecionada = ObterRegistros().Where(x => x.Disciplina.Equals(disciplina)).ToList();
+
+            Random rdm = new Random();
+            List<Questao> questoes = questoesDisciplinaSelecionada.OrderBy(item => rdm.Next()).ToList();
+
+            foreach (Questao q in questoes)
+            {
+                questoesSorteadas.Add(q);
+                limite++;
+                if (limite == qtd)
+                    break;
+            }
 
             return questoesSorteadas;
         }

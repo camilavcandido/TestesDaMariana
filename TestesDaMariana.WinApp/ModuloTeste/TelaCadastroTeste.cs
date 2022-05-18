@@ -103,13 +103,28 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             btnGravar.Enabled = true;
             listBoxQuestoes.Items.Clear();
 
-            int qtdQuestoes = (int)numQuestoes.Value;
-            Materia materiaSelecionada = (Materia)comboBoxMateria.SelectedItem;
-
-            List<Questao> questoesSorteadas = repositorioQuestao.Sortear(materiaSelecionada, qtdQuestoes);
-            foreach(Questao q in questoesSorteadas)
+            if (checkBoxProvaRecuperacao.Checked)
             {
-                listBoxQuestoes.Items.Add(q);
+                int qtdQuestoes = (int)numQuestoes.Value;
+                Disciplina disciplinaSelecionada = (Disciplina)comboBoxDisciplina.SelectedItem;
+
+                List<Questao> questoesSorteadasDisciplina = repositorioQuestao.SortearQuestoesRecuperacao(disciplinaSelecionada, qtdQuestoes);
+                foreach (Questao q in questoesSorteadasDisciplina)
+                {
+                    listBoxQuestoes.Items.Add(q);
+                }
+            }
+            else
+            {
+
+                int qtdQuestoes = (int)numQuestoes.Value;
+                Materia materiaSelecionada = (Materia)comboBoxMateria.SelectedItem;
+
+                List<Questao> questoesSorteadas = repositorioQuestao.Sortear(materiaSelecionada, qtdQuestoes);
+                foreach (Questao q in questoesSorteadas)
+                {
+                    listBoxQuestoes.Items.Add(q);
+                }
             }
         }
 
@@ -142,8 +157,6 @@ namespace TestesDaMariana.WinApp.ModuloTeste
         }
 
 
-
-
         #region rodapé
         private void TelaCadastroTeste_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -157,5 +170,37 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
         }
         #endregion
+
+        private void checkBoxProvaRecuperacao_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxProvaRecuperacao.Checked)
+            {
+                comboBoxMateria.ResetText();
+                comboBoxMateria.Enabled = false;
+                numQuestoes.Enabled = true;
+                numQuestoes.Minimum = 1;
+                numQuestoes.Maximum = ObtemQuantidadeMaximaRecuperacao();
+                if (numQuestoes.Value == 0)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("Não existem questões cadastradas para a disciplina selecionada!");
+                    btnSortearQuestoes.Enabled = false;
+                }
+            } else
+            {
+                comboBoxMateria.Enabled = true;
+                comboBoxMateria.ResetText();
+                numQuestoes.ResetText();
+                listBoxQuestoes.Items.Clear();
+            }
+
+
+        }
+
+        private decimal ObtemQuantidadeMaximaRecuperacao()
+        {
+            Disciplina d = (Disciplina)comboBoxDisciplina.SelectedItem;
+            List<Questao> questoesDisciplinaSelecionada = repositorioQuestao.SelecionarTodos().Where(x => x.Disciplina.Equals(d)).ToList();
+            return questoesDisciplinaSelecionada.Count;
+        }
     }
 }
