@@ -180,13 +180,15 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
                     doc.Add(pulaLinha);
 
+                    int nQuestao = 1;
                     foreach (var q in testeSelecionado.Questoes)
                     {
-                        doc.Add(new Paragraph(q.Enunciado));
+                        doc.Add(new Paragraph(nQuestao + ". " + q.Enunciado));
                         foreach (var a in q.Alternativas)
                         {
                             doc.Add(new Paragraph(a.ToString()));
                         }
+                        nQuestao++;
                         doc.Add(pulaLinha);
                     }
 
