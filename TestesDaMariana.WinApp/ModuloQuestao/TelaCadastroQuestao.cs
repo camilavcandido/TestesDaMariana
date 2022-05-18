@@ -21,6 +21,7 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
             this.repositorioDisciplina = repositorioDisciplina;
             this.repositorioMateria = repositorioMateria;
             CarregarDisciplinas();
+            comboBoxLetraAlternativa.SelectedIndex = 0;
         }
         public Func<Questao, ValidationResult> GravarRegistro { get; set; }
 
@@ -103,6 +104,12 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
 
                 }
 
+            }
+
+            txtDescricaoAlternativa.Clear();
+            if(comboBoxLetraAlternativa.SelectedIndex <= 3)
+            {
+                comboBoxLetraAlternativa.SelectedIndex = comboBoxLetraAlternativa.SelectedIndex + 1;
             }
 
 

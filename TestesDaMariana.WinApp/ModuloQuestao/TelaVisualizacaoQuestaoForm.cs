@@ -27,8 +27,9 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
         private void CarregarAlternativas()
         {
             List<Alternativa> lisAlternativas = questao.Alternativas.ToList();
+            List<Alternativa> ordenadas = lisAlternativas.OrderBy(x => x.Letra).ToList();
 
-            foreach (Alternativa a in lisAlternativas)
+            foreach (Alternativa a in ordenadas)
             {
 
                 if (a.Letra.Equals(questao.AlternativaCorreta))
