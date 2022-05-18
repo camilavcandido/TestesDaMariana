@@ -44,7 +44,6 @@ namespace TestesDaMariana.Dominio.ModuloTeste
             Titulo = registro.Titulo;
             Disciplina = registro.Disciplina;
             Materia = registro.Materia;
-            Questoes = registro.Questoes;
             dataCriacao = DateTime.Now;
         }
 
