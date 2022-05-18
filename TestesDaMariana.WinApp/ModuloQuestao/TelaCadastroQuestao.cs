@@ -90,6 +90,8 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
 
         private void btnAddAlternativa_Click(object sender, EventArgs e)
         {
+            listAlternativas.Sorted = true;
+
             List<string> letras = AlternativasAdicionadas.Select(x => x.Letra).ToList();
 
             List<string> descricoes = AlternativasAdicionadas.Select(x => x.Descricao).ToList();
@@ -103,7 +105,6 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
 
                     Alternativa novaAlternativa = new Alternativa(letra, descricao);
                     listAlternativas.Items.Add(novaAlternativa);
-
                     txtDescricaoAlternativa.Clear();
                     if (comboBoxLetraAlternativa.SelectedIndex <= 3)
                     {
@@ -148,6 +149,7 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
                 comboBoxDisciplinas.Items.Add(d);
             }
         }
+
         private void comboBoxDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxMaterias.Items.Clear();
