@@ -102,16 +102,15 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
                     Alternativa novaAlternativa = new Alternativa(letra, descricao);
                     listAlternativas.Items.Add(novaAlternativa);
 
+                    txtDescricaoAlternativa.Clear();
+                    if (comboBoxLetraAlternativa.SelectedIndex <= 3)
+                    {
+                        comboBoxLetraAlternativa.SelectedIndex = comboBoxLetraAlternativa.SelectedIndex + 1;
+                    }
+
                 }
 
             }
-
-            txtDescricaoAlternativa.Clear();
-            if(comboBoxLetraAlternativa.SelectedIndex <= 3)
-            {
-                comboBoxLetraAlternativa.SelectedIndex = comboBoxLetraAlternativa.SelectedIndex + 1;
-            }
-
 
         }
 
