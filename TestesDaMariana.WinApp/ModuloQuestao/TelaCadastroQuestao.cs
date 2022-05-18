@@ -47,7 +47,9 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
         {
             get
             {
-                return listAlternativas.Items.Cast<Alternativa>().ToList();
+                return listAlternativas.Items.Cast<Alternativa>().OrderBy(x => x.Letra)
+                    .ToList();
+
             } set
             {
 
