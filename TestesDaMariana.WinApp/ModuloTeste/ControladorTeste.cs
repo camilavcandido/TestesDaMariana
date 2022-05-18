@@ -165,8 +165,12 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
                     Paragraph pulaLinha = new Paragraph("\n");
 
-                    Paragraph disciplinaEhMateria = new Paragraph($"Disciplina: {testeSelecionado.Disciplina.Nome}\nMatéria: {testeSelecionado.Materia.Nome}\n");
-                    doc.Add(disciplinaEhMateria);
+                    Paragraph disciplina = new Paragraph($"Disciplina: {testeSelecionado.Disciplina.Nome}");
+                    Paragraph materia = new Paragraph($"Matéria: {testeSelecionado.Materia.Nome}");
+
+                    doc.Add(disciplina);
+                    doc.Add(materia);
+
 
                     Paragraph titulo = new Paragraph(testeSelecionado.Titulo);
 

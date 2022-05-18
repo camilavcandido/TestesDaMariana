@@ -36,7 +36,15 @@ namespace TestesDaMariana.Dominio.ModuloMateria
 
         public override string ToString()
         {
-            return $"{Nome} - {Serie}ºsérie";
+            if (this.Serie == 0)
+            {
+                return $"{Nome}";
+            }
+            else
+            {
+
+                return $"{Nome} - {Serie}ºsérie";
+            }
         }
     }
 }

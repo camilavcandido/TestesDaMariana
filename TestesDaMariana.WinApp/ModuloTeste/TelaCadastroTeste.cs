@@ -60,8 +60,16 @@ namespace TestesDaMariana.WinApp.ModuloTeste
                 {
                     teste.Titulo = txtTituloTeste.Text;
                     teste.Disciplina = (Disciplina)comboBoxDisciplina.SelectedItem;
-                    teste.Materia = (Materia)comboBoxMateria.SelectedItem;
                     teste.Questoes = QuestoesSorteadas;
+
+                    if(comboBoxMateria.SelectedItem == null) { 
+                        Materia novaMateria = new Materia();
+                        novaMateria.Nome = "Todas";
+                        teste.Materia = novaMateria;
+                    } else
+                    {
+                        teste.Materia = (Materia)comboBoxMateria.SelectedItem;
+                    }
 
                     var resultadoValidacao = GravarRegistro(teste);
                     if (resultadoValidacao.IsValid == false)
