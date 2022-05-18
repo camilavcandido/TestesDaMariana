@@ -56,20 +56,32 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            questao.Disciplina = (Disciplina)comboBoxDisciplinas.SelectedItem;
-            questao.Materia = (Materia)comboBoxMaterias.SelectedItem;
-            questao.Enunciado = txtEnunciado.Text.ToString();
-            questao.AlternativaCorreta = (string)comboBoxAlternativaCorreta.SelectedItem;
-
-            var resultadoValidacao = GravarRegistro(questao);
-            if (resultadoValidacao.IsValid == false)
+            if (AlternativasAdicionadas.Count >= 5)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                questao.Disciplina = (Disciplina)comboBoxDisciplinas.SelectedItem;
+                questao.Materia = (Materia)comboBoxMaterias.SelectedItem;
+                questao.Enunciado = txtEnunciado.Text.ToString();
+                questao.AlternativaCorreta = (string)comboBoxAlternativaCorreta.SelectedItem;
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                var resultadoValidacao = GravarRegistro(questao);
+                if (resultadoValidacao.IsValid == false)
+                {
+                    string erro = resultadoValidacao.Errors[0].ErrorMessage;
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                    DialogResult = DialogResult.None;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Adicione 5 alternativas à questão",
+                "Cadastro de Questões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 DialogResult = DialogResult.None;
-            }      
+
+                return;
+            }
 
         }
 

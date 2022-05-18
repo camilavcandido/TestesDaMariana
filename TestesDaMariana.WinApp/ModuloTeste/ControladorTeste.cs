@@ -109,7 +109,6 @@ namespace TestesDaMariana.WinApp.ModuloTeste
         public void Duplicar()
         {
             Teste testeSelecionado = ObtemTesteSelecionado();
-            Teste testeDuplicado = (Teste)testeSelecionado.Clone();
 
             if (testeSelecionado == null)
             {
@@ -118,6 +117,7 @@ namespace TestesDaMariana.WinApp.ModuloTeste
                 return;
             }
 
+            Teste testeDuplicado = (Teste)testeSelecionado.Clone();
 
             TelaCadastroTeste tela = new TelaCadastroTeste(repositorioDisciplina, repositorioMateria, repositorioQuestao);
             tela.Teste = testeDuplicado;

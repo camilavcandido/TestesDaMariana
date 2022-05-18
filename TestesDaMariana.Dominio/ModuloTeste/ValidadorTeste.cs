@@ -7,7 +7,7 @@ namespace TestesDaMariana.Dominio.ModuloTeste
         public ValidadorTeste()
         {
             RuleFor(x => x.Titulo)
-                  .NotNull().NotEmpty();
+                  .NotNull().NotEmpty().MinimumLength(3);
 
             RuleFor(x => x.Disciplina)
              .NotNull().NotEmpty();

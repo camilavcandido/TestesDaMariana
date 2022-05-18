@@ -90,6 +90,7 @@
             // 
             // comboBoxDisciplina
             // 
+            this.comboBoxDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDisciplina.FormattingEnabled = true;
             this.comboBoxDisciplina.Location = new System.Drawing.Point(97, 70);
             this.comboBoxDisciplina.Name = "comboBoxDisciplina";
@@ -99,6 +100,7 @@
             // 
             // comboBoxMateria
             // 
+            this.comboBoxMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMateria.FormattingEnabled = true;
             this.comboBoxMateria.Location = new System.Drawing.Point(97, 111);
             this.comboBoxMateria.Name = "comboBoxMateria";
@@ -128,7 +130,6 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Enabled = false;
             this.btnGravar.Location = new System.Drawing.Point(264, 412);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 30);

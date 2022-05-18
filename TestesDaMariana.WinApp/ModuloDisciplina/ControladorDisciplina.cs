@@ -1,11 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using TestesDaMariana.Dominio.ModuloDisciplina;
+using TestesDaMariana.Dominio.ModuloMateria;
 using TestesDaMariana.Infra.Repositorios;
 using TestesDaMariana.WinApp.Compartilhado;
 
@@ -14,10 +13,12 @@ namespace TestesDaMariana.WinApp.ModuloDisciplina
     public class ControladorDisciplina : ControladorBase
     {
         private IRepositorioDisciplina repositorioDisciplina;
+        private IRepositorioMateria repositorioMateria;
         private TabelaDisciplinasControl tabelaDisciplinasControl;
-        public ControladorDisciplina(IRepositorioDisciplina repositorioDisciplina)
+        public ControladorDisciplina(IRepositorioDisciplina repositorioDisciplina, IRepositorioMateria repositorioMateria)
         {
             this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioMateria = repositorioMateria;
         }
 
         public override void Inserir()
@@ -64,6 +65,18 @@ namespace TestesDaMariana.WinApp.ModuloDisciplina
                 MessageBox.Show("Selecione uma disciplina primeiro",
                 "Exclusão de Disciplinas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
+            }
+
+            var materia = repositorioMateria.SelecionarTodos();
+
+            foreach (var item in materia)
+            {
+                if (item.Disciplina.Nome == disciplinaSelecionada.Nome)
+                {
+                    MessageBox.Show("Esta disciplina está atrelada a uma matéria e não pode ser excluída",
+                    "Exclusão de Disciplinas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
 
             DialogResult resultado = MessageBox.Show("Deseja realmente excluir a disciplina?",

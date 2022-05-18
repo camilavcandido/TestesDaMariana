@@ -7,7 +7,7 @@ namespace TestesDaMariana.Dominio.ModuloDisciplina
         public ValidadorDisciplina()
         {
             RuleFor(x => x.Nome)
-              .NotNull().NotEmpty();
+              .NotNull().NotEmpty().MinimumLength(3);
         }
     }
 }

@@ -45,9 +45,9 @@ namespace TestesDaMariana.WinApp
             var repositorioQuestao = new RepositorioQuestaoEmArquivo(dataContext);
             var repositorioTeste = new RepositorioTesteEmArquivo(dataContext);
             controladores = new Dictionary<string, ControladorBase>();
-            controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina));
+            controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina, repositorioMateria));
             controladores.Add("Matérias", new ControladorMateria(repositorioMateria, repositorioDisciplina));
-            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria));
+            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria, repositorioTeste));
             controladores.Add("Testes", new ControladorTeste(repositorioTeste, repositorioDisciplina, repositorioMateria, repositorioQuestao));
         }
 

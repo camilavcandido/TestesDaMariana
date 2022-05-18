@@ -151,28 +151,7 @@
             "B",
             "C",
             "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
+            "E"});
             this.comboBoxLetraAlternativa.Location = new System.Drawing.Point(49, 37);
             this.comboBoxLetraAlternativa.Name = "comboBoxLetraAlternativa";
             this.comboBoxLetraAlternativa.Size = new System.Drawing.Size(50, 23);
@@ -257,28 +236,7 @@
             "B",
             "C",
             "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
+            "E"});
             this.comboBoxAlternativaCorreta.Location = new System.Drawing.Point(145, 468);
             this.comboBoxAlternativaCorreta.Name = "comboBoxAlternativaCorreta";
             this.comboBoxAlternativaCorreta.Size = new System.Drawing.Size(50, 23);

@@ -18,7 +18,7 @@ namespace TestesDaMariana.Dominio.ModuloQuestao
             .NotNull().NotEmpty();
 
             RuleFor(x => x.Enunciado)
-              .NotNull().NotEmpty();
+              .NotNull().NotEmpty().MinimumLength(10);
 
             RuleFor(x => x.AlternativaCorreta)
               .NotNull().NotEmpty();

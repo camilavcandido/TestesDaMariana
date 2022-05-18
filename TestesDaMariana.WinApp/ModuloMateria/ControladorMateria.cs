@@ -46,6 +46,7 @@ namespace TestesDaMariana.WinApp.ModuloMateria
 
             tela.Materia = materiaSelecionada;
 
+            tela.GravarRegistro = repositorioMateria.Editar;
 
             DialogResult resultado = tela.ShowDialog();
 

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
 using TestesDaMariana.Infra.Compartilhado;
+using TestesDaMariana.WinApp.Compartilhado;
 
 namespace TestesDaMariana.WinApp.ModuloMateria
 {
@@ -12,6 +13,8 @@ namespace TestesDaMariana.WinApp.ModuloMateria
     {
 
         IRepositorioDisciplina repositorioDisciplina;
+        ValidadorRegex validador = new ValidadorRegex();
+
         private Materia materia;
 
         public TelaCadastroMateria(IRepositorioDisciplina repositorioDisciplina)
@@ -34,11 +37,22 @@ namespace TestesDaMariana.WinApp.ModuloMateria
                 materia = value;
                 txtNomeMateria.Text = materia.Nome;
                 comboBoxDisciplina.SelectedItem = materia.Disciplina;
-
+                GravarSerie();
 
             }
         }
 
+        private void GravarSerie()
+        {
+            if (materia.Serie == 1)
+            {
+                radioButton1serie.Checked = true;
+            }
+            else if (materia.Serie == 2)
+            {
+                radioButton2serie.Checked = true;
+            }
+        }
 
         private void CarregarDisciplinas()
         {
@@ -51,18 +65,30 @@ namespace TestesDaMariana.WinApp.ModuloMateria
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            materia.Nome = txtNomeMateria.Text;
-            materia.Serie = ObtemSerie();
-            materia.Disciplina = (Disciplina)comboBoxDisciplina.SelectedItem;
-
-            var resultadoValidacao = GravarRegistro(Materia);
-            if (resultadoValidacao.IsValid == false)
+            if (validador.ApenasLetra(txtNomeMateria.Text))
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                materia.Nome = txtNomeMateria.Text;
+                materia.Serie = ObtemSerie();
+                materia.Disciplina = (Disciplina)comboBoxDisciplina.SelectedItem;
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                var resultadoValidacao = GravarRegistro(Materia);
+                if (resultadoValidacao.IsValid == false)
+                {
+                    string erro = resultadoValidacao.Errors[0].ErrorMessage;
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                    DialogResult = DialogResult.None;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Insira apenas letras no campo 'Nome'",
+                "Cadastro de Matérias", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 DialogResult = DialogResult.None;
+
+                return;
             }
         }
 

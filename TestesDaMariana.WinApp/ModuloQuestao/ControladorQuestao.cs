@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using TestesDaMariana.Dominio.ModuloDisciplina;
 using TestesDaMariana.Dominio.ModuloMateria;
 using TestesDaMariana.Dominio.ModuloQuestao;
+using TestesDaMariana.Dominio.ModuloTeste;
 using TestesDaMariana.WinApp.Compartilhado;
 
 namespace TestesDaMariana.WinApp.ModuloQuestao
@@ -12,14 +13,16 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
         IRepositorioQuestao repositorioQuestao;
         IRepositorioDisciplina repositorioDisciplina;
         IRepositorioMateria repositorioMateria;
+        IRepositorioTeste repositorioTeste;
 
         TabelaQuestaoControl tabelaQuestaoControl;
 
-        public ControladorQuestao(IRepositorioQuestao repositorioQuestao, IRepositorioDisciplina repositorioDisciplina, IRepositorioMateria repositorioMateria)
+        public ControladorQuestao(IRepositorioQuestao repositorioQuestao, IRepositorioDisciplina repositorioDisciplina, IRepositorioMateria repositorioMateria, IRepositorioTeste repositorioTeste)
         {
             this.repositorioQuestao = repositorioQuestao;
             this.repositorioDisciplina = repositorioDisciplina;
             this.repositorioMateria = repositorioMateria;
+            this.repositorioTeste = repositorioTeste;
         }
 
         public override void VisualizarDetalhes()
@@ -88,6 +91,21 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
                 MessageBox.Show("Selecione uma questão primeiro",
                 "Exclusão de Questões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
+            }
+
+            var testes = repositorioTeste.SelecionarTodos();
+
+            foreach (var questoes in testes)
+            {
+                foreach (var questao in questoes.Questoes)
+                {
+                    if (questaoSelecionada.Enunciado == questao.Enunciado)
+                    {
+                        MessageBox.Show("Esta questão está atrelada a um teste e não pode ser excluída",
+                        "Exclusão de Questões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
             }
 
             DialogResult resultado = MessageBox.Show("Deseja realmente excluir a questão?",

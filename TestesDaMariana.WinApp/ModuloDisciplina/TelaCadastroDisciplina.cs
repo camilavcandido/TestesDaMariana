@@ -2,12 +2,14 @@
 using System;
 using System.Windows.Forms;
 using TestesDaMariana.Dominio.ModuloDisciplina;
+using TestesDaMariana.WinApp.Compartilhado;
 
 namespace TestesDaMariana.WinApp.ModuloDisciplina
 {
     public partial class TelaCadastroDisciplina : Form
     {
         private Disciplina disciplina;
+        ValidadorRegex validador = new ValidadorRegex();
         public TelaCadastroDisciplina()
         {
             InitializeComponent();
@@ -31,16 +33,28 @@ namespace TestesDaMariana.WinApp.ModuloDisciplina
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            disciplina.Nome = txtNomeDisciplina.Text;
-
-            var resultadoValidacao = GravarRegistro(disciplina);
-            if (resultadoValidacao.IsValid == false)
+            if (validador.ApenasLetra(txtNomeDisciplina.Text))
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                disciplina.Nome = txtNomeDisciplina.Text;
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                var resultadoValidacao = GravarRegistro(disciplina);
+                if (resultadoValidacao.IsValid == false)
+                {
+                    string erro = resultadoValidacao.Errors[0].ErrorMessage;
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                    DialogResult = DialogResult.None;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Insira apenas letras no campo 'Nome'",
+                "Cadastro de Disciplinas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 DialogResult = DialogResult.None;
+
+                return;
             }
         }
 
