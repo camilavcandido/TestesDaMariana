@@ -50,21 +50,31 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            
-            teste.Titulo = txtTituloTeste.Text;
-            teste.Disciplina = (Disciplina)comboBoxDisciplina.SelectedItem;
-            teste.Materia = (Materia)comboBoxMateria.SelectedItem;
-            teste.Questoes = QuestoesSorteadas;
-
-            var resultadoValidacao = GravarRegistro(teste);
-            if (resultadoValidacao.IsValid == false)
+            int qtdQuestoes = listBoxQuestoes.Items.Count;
+            if(qtdQuestoes < 5)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                DialogResult resultado = MessageBox.Show("Deseja realmente criar um teste com menos de 5 questões?",
+              "Geração de Testes", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                if (resultado == DialogResult.OK)
+                {
+                    teste.Titulo = txtTituloTeste.Text;
+                    teste.Disciplina = (Disciplina)comboBoxDisciplina.SelectedItem;
+                    teste.Materia = (Materia)comboBoxMateria.SelectedItem;
+                    teste.Questoes = QuestoesSorteadas;
 
-                DialogResult = DialogResult.None;
+                    var resultadoValidacao = GravarRegistro(teste);
+                    if (resultadoValidacao.IsValid == false)
+                    {
+                        string erro = resultadoValidacao.Errors[0].ErrorMessage;
+
+                        TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                        DialogResult = DialogResult.None;
+                    }
+                }
             }
+
         }
 
 
