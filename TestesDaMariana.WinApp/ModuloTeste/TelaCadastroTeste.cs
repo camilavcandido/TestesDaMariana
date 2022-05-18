@@ -87,6 +87,7 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
         private void comboBoxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
+            checkBoxProvaRecuperacao.Enabled = true;
             comboBoxMateria.Items.Clear();
             List<Materia> materias = repositorioMateria.SelecionarTodos();
             foreach (Materia m in materias)
@@ -156,26 +157,12 @@ namespace TestesDaMariana.WinApp.ModuloTeste
 
         }
 
-
-        #region rodapé
-        private void TelaCadastroTeste_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
-
-        }
-
-        private void TelaCadastroTeste_Load(object sender, EventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
-
-        }
-        #endregion
-
         private void checkBoxProvaRecuperacao_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBoxProvaRecuperacao.Checked)
+
+            if (checkBoxProvaRecuperacao.Checked)
             {
-                comboBoxMateria.ResetText();
+                comboBoxMateria.SelectedIndex = -1;
                 comboBoxMateria.Enabled = false;
                 numQuestoes.Enabled = true;
                 numQuestoes.Minimum = 1;
@@ -187,8 +174,8 @@ namespace TestesDaMariana.WinApp.ModuloTeste
                 }
             } else
             {
+                comboBoxMateria.SelectedIndex = -1;
                 comboBoxMateria.Enabled = true;
-                comboBoxMateria.ResetText();
                 numQuestoes.ResetText();
                 listBoxQuestoes.Items.Clear();
             }
@@ -202,5 +189,19 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             List<Questao> questoesDisciplinaSelecionada = repositorioQuestao.SelecionarTodos().Where(x => x.Disciplina.Equals(d)).ToList();
             return questoesDisciplinaSelecionada.Count;
         }
+       
+        #region rodapé
+        private void TelaCadastroTeste_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+
+        private void TelaCadastroTeste_Load(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+
+        }
+        #endregion
     }
 }

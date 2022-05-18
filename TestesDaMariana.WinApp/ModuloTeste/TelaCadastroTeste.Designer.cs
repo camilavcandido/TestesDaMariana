@@ -173,6 +173,7 @@
             // checkBoxProvaRecuperacao
             // 
             this.checkBoxProvaRecuperacao.AutoSize = true;
+            this.checkBoxProvaRecuperacao.Enabled = false;
             this.checkBoxProvaRecuperacao.Location = new System.Drawing.Point(28, 108);
             this.checkBoxProvaRecuperacao.Name = "checkBoxProvaRecuperacao";
             this.checkBoxProvaRecuperacao.Size = new System.Drawing.Size(143, 19);
