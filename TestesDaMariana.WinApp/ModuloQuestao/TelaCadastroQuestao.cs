@@ -103,7 +103,8 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
                     string letra = (string)comboBoxLetraAlternativa.SelectedItem;
                     string descricao = txtDescricaoAlternativa.Text;
 
-                    Alternativa novaAlternativa = new Alternativa(letra, descricao);
+                    
+                    Alternativa novaAlternativa = new Alternativa(letra, descricao, questao);
                     listAlternativas.Items.Add(novaAlternativa);
                     txtDescricaoAlternativa.Clear();
                     if (comboBoxLetraAlternativa.SelectedIndex <= 3)
@@ -153,10 +154,11 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
         private void comboBoxDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxMaterias.Items.Clear();
+
             List<Materia> materias = repositorioMateria.SelecionarTodos();
             foreach(Materia m in materias)
             {
-                if(m.Disciplina == comboBoxDisciplinas.SelectedItem)
+                if(m.Disciplina.Nome  == ((Disciplina)comboBoxDisciplinas.SelectedItem).Nome)
                 {
                     comboBoxMaterias.Items.Add(m);
 

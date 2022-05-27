@@ -21,7 +21,7 @@ namespace TestesDaMariana.WinApp.ModuloMateria
             var colunas = new DataGridViewColumn[] {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Numero", HeaderText = "Número"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina.Nome", HeaderText = "Disciplina"},
+              new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Matéria"},
 

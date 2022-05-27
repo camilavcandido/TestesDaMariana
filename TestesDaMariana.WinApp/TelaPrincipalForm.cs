@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using TestesDaMariana.Infra.BancoDados.ModuloDisciplina;
+using TestesDaMariana.Infra.BancoDados.ModuloMateria;
+using TestesDaMariana.Infra.BancoDados.ModuloQuestao;
 using TestesDaMariana.Infra.Compartilhado;
 using TestesDaMariana.Infra.Repositorios;
 using TestesDaMariana.WinApp.Compartilhado;
@@ -40,15 +43,17 @@ namespace TestesDaMariana.WinApp
 
         private void InicializarControladores()
         {
-            var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(dataContext);
-            var repositorioMateria = new RepositorioMateriaEmArquivo(dataContext);
-            var repositorioQuestao = new RepositorioQuestaoEmArquivo(dataContext);
+            var repositorioDisciplina = new RepositorioDisciplinaEmBancoDados();
+            var repositorioMateria = new RepositorioMateriaEmBancoDados();
+            var repositorioQuestao = new RepositorioQuestaoEmBancoDados();
             var repositorioTeste = new RepositorioTesteEmArquivo(dataContext);
+            
             controladores = new Dictionary<string, ControladorBase>();
             controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina, repositorioMateria));
             controladores.Add("Matérias", new ControladorMateria(repositorioMateria, repositorioDisciplina));
             controladores.Add("Questões", new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria, repositorioTeste));
             controladores.Add("Testes", new ControladorTeste(repositorioTeste, repositorioDisciplina, repositorioMateria, repositorioQuestao));
+        
         }
 
         #region botoes

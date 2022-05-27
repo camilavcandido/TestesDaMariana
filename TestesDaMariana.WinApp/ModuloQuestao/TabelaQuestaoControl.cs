@@ -48,7 +48,7 @@ namespace TestesDaMariana.WinApp.ModuloQuestao
             grid.Rows.Clear();                
             foreach (Questao q in questoes)
             {
-                grid.Rows.Add(q.Numero, q.Disciplina.Nome, q.Materia, q.Enunciado, q.Alternativas.Count, q.AlternativaCorreta);
+                grid.Rows.Add(q.Numero, q.Disciplina, q.Materia, q.Enunciado, q.Alternativas.Count, q.AlternativaCorreta);
             }
         }
 

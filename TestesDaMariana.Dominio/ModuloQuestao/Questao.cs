@@ -39,11 +39,23 @@ namespace TestesDaMariana.Dominio.ModuloQuestao
             this.alternativas = registro.Alternativas;
         }
 
-        public void AdicionarAlternativa(Alternativa alternativa)
+        public bool AdicionarAlternativa(Alternativa alternativa)
         {
             if (Alternativas.Exists(x => x.Equals(alternativa)) == false)
+            {
+                alternativa.Questao = this;
                 alternativas.Add(alternativa);
+                return true;
+
+
+            }
+            return false;
         }
+
+        //public int QtdAlternativasQuestao()
+        //{
+        //    return alternativas.Count;
+        //}
 
         public override string ToString()
         {
