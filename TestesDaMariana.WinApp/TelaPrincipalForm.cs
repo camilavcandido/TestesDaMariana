@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using TestesDaMariana.Infra.BancoDados.ModuloDisciplina;
 using TestesDaMariana.Infra.BancoDados.ModuloMateria;
 using TestesDaMariana.Infra.BancoDados.ModuloQuestao;
+using TestesDaMariana.Infra.BancoDados.ModuloTeste;
 using TestesDaMariana.Infra.Compartilhado;
 using TestesDaMariana.Infra.Repositorios;
 using TestesDaMariana.WinApp.Compartilhado;
@@ -46,7 +47,7 @@ namespace TestesDaMariana.WinApp
             var repositorioDisciplina = new RepositorioDisciplinaEmBancoDados();
             var repositorioMateria = new RepositorioMateriaEmBancoDados();
             var repositorioQuestao = new RepositorioQuestaoEmBancoDados();
-            var repositorioTeste = new RepositorioTesteEmArquivo(dataContext);
+            var repositorioTeste = new RepositorioTesteEmBancoDados();
             
             controladores = new Dictionary<string, ControladorBase>();
             controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina, repositorioMateria));

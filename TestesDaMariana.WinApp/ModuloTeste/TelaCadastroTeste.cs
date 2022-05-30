@@ -37,13 +37,19 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             get { return teste;  }
             set { 
                 teste = value;
-                txtTituloTeste.Text = teste.Titulo;
-                comboBoxDisciplina.SelectedItem = teste.Disciplina;
-                comboBoxMateria.SelectedItem = teste.Materia;
-                listBoxQuestoes.Items.AddRange(teste.Questoes.ToArray());
+ 
+                 txtTituloTeste.Text = teste.Titulo;
+
+                    comboBoxDisciplina.SelectedItem = teste.Disciplina;
+                    comboBoxMateria.SelectedItem = teste.Materia;
+                    listBoxQuestoes.Items.AddRange(teste.Questoes.ToArray());
+                
+               
             }
 
         }
+
+
 
         public Func<Teste, ValidationResult> GravarRegistro { get; set; }
 
@@ -110,7 +116,7 @@ namespace TestesDaMariana.WinApp.ModuloTeste
             List<Materia> materias = repositorioMateria.SelecionarTodos();
             foreach (Materia m in materias)
             {
-                if (m.Disciplina == comboBoxDisciplina.SelectedItem)
+                if (m.Disciplina.Numero == ((Disciplina)comboBoxDisciplina.SelectedItem).Numero)
                 {
                     comboBoxMateria.Items.Add(m);
                 }
@@ -151,8 +157,8 @@ namespace TestesDaMariana.WinApp.ModuloTeste
         {
             numQuestoes.Enabled = true;
             numQuestoes.Minimum = 1;
-            numQuestoes.Maximum =  ObtemQuantidadeMaxima();
-            if(numQuestoes.Value == 0)
+            numQuestoes.Maximum = ObtemQuantidadeMaxima();
+            if (numQuestoes.Value == 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Não existem questões cadastradas para a matéria selecionada!");
                 btnSortearQuestoes.Enabled = false;
@@ -164,7 +170,7 @@ namespace TestesDaMariana.WinApp.ModuloTeste
         private decimal ObtemQuantidadeMaxima()
         {
             Materia m = (Materia)comboBoxMateria.SelectedItem;
-            List<Questao> questoesMateriaSelecionada = repositorioQuestao.SelecionarTodos().Where(x => x.Materia.Equals(m)).ToList();
+            List<Questao> questoesMateriaSelecionada = repositorioQuestao.SelecionarTodos().Where(x => x.Materia.Numero == m.Numero ).ToList();
             return questoesMateriaSelecionada.Count;
         }
 

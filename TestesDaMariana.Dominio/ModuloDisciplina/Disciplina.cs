@@ -32,5 +32,16 @@ namespace TestesDaMariana.Dominio.ModuloDisciplina
             return Nome;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Disciplina disciplina &&
+                   Numero == disciplina.Numero &&
+                   Nome == disciplina.Nome;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Numero, Nome);
+        }
     }
 }
